@@ -1,0 +1,8 @@
+task main ()
+{
+	int DieErsteVariable;
+	// Hier wird die Variable erstellt bzw. „deklariert“.
+
+	DieErsteVariable = 10;	
+	/* Hier wird die vorhin deklarierte Variable „definiert“, ihr wird also ein Wert zugewiesen */
+}
