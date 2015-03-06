@@ -1,19 +1,58 @@
 #include "NXCDefs.h"
-#define MOVE_SPEED	40
+#define MOVE_SPEED	25
 
 task main ()
 {
+	ClearScreen();
 	OnFwd(OUT_A, MOVE_SPEED);
 	SetSensorColorFull(IN_1);
 	bool done = false;
+	long count1 = 0;
+	long count2 = 0;
 
 	while(!done)
 	{
-		while(SENSOR_1 == 2) //blau
+		if(SENSOR_1 == 2) //blau
 		{
 			done = true;
+			count1 = MotorRotationCount(OUT_A);
+			Off(OUT_A);
 		}
+		else if(SENSOR_1 == 5)
+		{
+			OnFwd(OUT_A, MOVE_SPEED);
+		}	
 	}
 
-	Off(OUT_A);
+	NumOut(1,LCD_LINE1,count1);
+
+	int n = 0;
+	while(n<10000)
+	{
+		++n;
+	}
+	
+	done = false;
+
+	while(!done)
+	{
+		if(SENSOR_1 == 2) //blau
+		{
+			done = true;
+			count2 = MotorRotationCount(OUT_A);
+			Off(OUT_A);
+		}
+		else if(SENSOR_1 == 4)
+		{
+			OnRev(OUT_A, MOVE_SPEED);
+		}	
+	}
+	NumOut(1,LCD_LINE3,(count1-count2));
+	NumOut(1,LCD_LINE2,count1-(count1-count2));
+
+	n = 0;
+	while(n<100000)
+	{
+		++n;
+	}
 }

@@ -4,8 +4,11 @@ NXT=usb
 #file extension we use
 EXT=nxc
 
-#source path
+#source dir
 SRC_DIR=src
+
+#doxygen dir
+DOXY_DIR=doxygen
 
 #build dir
 BUILD_DIR=build
@@ -28,6 +31,9 @@ $(PROGRAM).rxe: ./$(SRC_DIR)/$(PROGRAM).$(EXT) Makefile
 download: ./$(SRC_DIR)/$(PROGRAM).$(EXT) Makefile
 	$(NXC) -O=./$(BUILD_DIR)/$(PROGRAM).rxe $(OPTIONS) \
 		        ./$(SRC_DIR)/$(PROGRAM).$(EXT) -s=$(NXT) -d
+		        
+doc: ./$(DOXY_DIR)/Doxyfile /$(SRC_DIR)/%.c Makefile 
+		doxygen ./doxygen/Doxyfile
 	
 clean:
 	rm $(BUILD_DIR)/$(PROGRAM).rxe
