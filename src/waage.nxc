@@ -1,21 +1,27 @@
 #include "NXCDefs.h"
 #define MOVE_SPEED	25
 
+float GetWeight(long count)
+{
+	count-= 220;
+	float weight = count/21.0;
+	return weight;
+}
+
 task main ()
 {
 	ClearScreen();
 	OnFwd(OUT_A, MOVE_SPEED);
 	SetSensorColorFull(IN_1);
 	bool done = false;
-	long count1 = 0;
-	long count2 = 0;
+	long count = 0;
 
 	while(!done)
 	{
 		if(SENSOR_1 == 2) //blau
 		{
 			done = true;
-			count1 = MotorRotationCount(OUT_A);
+			count = MotorRotationCount(OUT_A);
 			Off(OUT_A);
 		}
 		else if(SENSOR_1 == 5)
@@ -24,35 +30,16 @@ task main ()
 		}	
 	}
 
-	NumOut(1,LCD_LINE1,count1);
-
+	NumOut(1,LCD_LINE1,count);
+	float weight = GetWeight(count);
+	TextOut(1,LCD_LINE2,"Gewicht:");
+	NumOut(1,LCD_LINE3,weight);
 	int n = 0;
-	while(n<10000)
-	{
-		++n;
-	}
-	
-	done = false;
-
-	while(!done)
-	{
-		if(SENSOR_1 == 2) //blau
-		{
-			done = true;
-			count2 = MotorRotationCount(OUT_A);
-			Off(OUT_A);
-		}
-		else if(SENSOR_1 == 4)
-		{
-			OnRev(OUT_A, MOVE_SPEED);
-		}	
-	}
-	NumOut(1,LCD_LINE3,(count1-count2));
-	NumOut(1,LCD_LINE2,count1-(count1-count2));
-
-	n = 0;
-	while(n<100000)
+	while(n<30000)
 	{
 		++n;
 	}
 }
+
+
+
