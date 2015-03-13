@@ -8,9 +8,8 @@ float GetWeight(long count)
 	return weight;
 }
 
-task main ()
+long MeasureWeight()
 {
-	ClearScreen();
 	OnFwd(OUT_A, MOVE_SPEED);
 	SetSensorColorFull(IN_1);
 	bool done = false;
@@ -31,10 +30,44 @@ task main ()
 	}
 
 	NumOut(1,LCD_LINE1,count);
+	return count;
+}
+
+void MoveBack()
+{
+	OnRev(OUT_A,MOVE_SPEED);
+	while(MotorRotationCount(OUT_A)>0)
+	{
+
+	}
+}
+
+task main ()
+{
+	ClearScreen();
+	long count = 0;
+	int n = 0;
+	for(int i = 0;i<3;++i)
+	{
+		count += MeasureWeight();
+		n = 0;
+		while(n<20000)
+		{
+			++n;
+		}
+		MoveBack();
+		n = 0;
+		while(n<20000)
+		{
+			++n;
+		}
+	}
+	count /= 3;
+	NumOut(1,LCD_LINE1,count);
 	float weight = GetWeight(count);
 	TextOut(1,LCD_LINE2,"Gewicht:");
 	NumOut(1,LCD_LINE3,weight);
-	int n = 0;
+	n = 0;
 	while(n<30000)
 	{
 		++n;
