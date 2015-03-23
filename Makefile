@@ -17,7 +17,7 @@ BUILD_DIR=build
 NXC=nbc
 
 #options to pass to the compiler
-OPTIONS=-Z2 -EF
+OPTIONS=-Z2
 
 #target name
 PROGRAM=waage
@@ -32,7 +32,7 @@ download: ./$(SRC_DIR)/$(PROGRAM).$(EXT) Makefile
 	$(NXC) -O=./$(BUILD_DIR)/$(PROGRAM).rxe $(OPTIONS) \
 		        ./$(SRC_DIR)/$(PROGRAM).$(EXT) -s=$(NXT) -d
 		        
-doc: ./$(DOXY_DIR)/Doxyfile /$(SRC_DIR)/%.c Makefile 
+doc: ./$(DOXY_DIR)/Doxyfile ./$(DOXY_DIR)/*.dox Makefile 
 		doxygen ./doxygen/Doxyfile
 	
 clean:
