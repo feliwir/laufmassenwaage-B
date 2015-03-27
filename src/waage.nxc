@@ -1,9 +1,9 @@
 #include "NXCDefs.h"
-#define MOVE_SPEED	25
+#define MOVE_SPEED	20
 
 float GetWeight(long count)
 {
-	count-= 220;
+	count-= 150;
 	float weight = count/21.1;
 	if(weight<0.5)
 		weight = 0.0;
@@ -19,12 +19,14 @@ long MeasureWeight()
 
 	while(!done)
 	{
-		if(SENSOR_1 == 2) //blau
+		//blau
+		if(SENSOR_1 == 2) 
 		{
 			done = true;
 			count = MotorRotationCount(OUT_A);
 			Off(OUT_A);
 		}
+		//rot
 		else if(SENSOR_1 == 5)
 		{
 			OnFwd(OUT_A, MOVE_SPEED);
@@ -49,22 +51,12 @@ task main ()
 {
 	ClearScreen();
 	long count = 0;
-	int n = 0;
-	int i = 0;
-	for(i = 0;i<3;++i)
-	{
-		if(count<500 && i==1)
-			break;
-
-		count += MeasureWeight();
-		Wait(2000);
-		MoveBack();
-		Wait(2000);
-	}
-	count /= i;
+	count += MeasureWeight();
 	NumOut(1,LCD_LINE1,count);
 	float weight = GetWeight(count);
 	TextOut(1,LCD_LINE2,"Gewicht:");
 	NumOut(1,LCD_LINE3,weight);
+	Wait(2000);
+	MoveBack();
 	Wait(3000);
 }

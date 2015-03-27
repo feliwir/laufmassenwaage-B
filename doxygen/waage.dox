@@ -1,10 +1,36 @@
 /*!
  \mainpage NXT-Waage
- \section sec_1 Die Aufgabe
- Die Anforderungen an das Projekt waren das man mit einem einzelnem NXT-Brick
- eine Laufmassenwaage mit höchstmöglicher Präzision zu erstellen
- \section sec_2 Unsere Idee
- Blabliblub
+ \section sec_1 Aufgabenstellung
+Die Aufgabenstellung umfasste den Entwurf und den Bau einer Laufmassenwaage mithilfe eines NXT-Baukastens, dabei sollte besonderen Wert auf höchstmögliche Präzision  gelegt werden. Die Umsetzung sowie der Messbereich der Waage waren den Gruppen freigestellt.
+ \section sec_2 Konzepte
+ - Je länger der Hebelarm, desto höher der Messbereich
+ - Möglichst leichtes Laufgewicht verwenden um eine hohe Präzision zu gewährleisten
+ - Das Laufgewicht langsam fahren lassen um Ausschlag möglichst früh festzustellen und Messungenauigkeiten zu vermeiden
+ - Leichtgängigkeit der Wippe um Ausschlag sofort festzustellen
+ \section sec_3 1. Entwurf
+Die Idee war es das Laufgewicht möglichst leicht zu halten, indem wir es mit Fäden ziehen. Die Fäden bilden dabei einen Kreislauf, welcher durch ein Rad, das an den  Motor angeschlossen ist, angetrieben wird.
+Das Gewicht wird über die zurückgelegte Distanz des Laufgewichts berechnet. Es wird die Distanz vom Start bis zum Kippen der Wippe benutzt. Die Bewegungen der Wippe werden durch einen Farbsensor bemerkt.
 
-<HR>
+\image html entwurf1.jpg
+\image latex entwurf1.jpg "Entwurf 1" width=10cm
+
+Probleme:
+ - Bei leicht gespannter Schnur rutschte diese bei Belastung über das Antriebsrad
+ - Bei stark gespannter Schnur verzog sich das Gestell und genaue Messungen waren unmöglich
+ - Ein Kompromiss war schwer umsetzbar
+ - Ein anderer Entwurf war nötig
+ \section sec_4 2. Entwurf
+Neue Idee, bei der Zahnräder verwendet werden. Das Laufgewicht wird nun nicht mehr durch Schnüre gezogen, sondern wird durch Zahnräder bewegt. Dabei besteht das Laufgewicht aus einem mit Zähnen besetzten Stab, der eine Schiene entlang gleitet.
+Dadurch sind die vorherigen Probleme behoben.
+
+\image html entwurf2.jpg
+\image latex entwurf2.jpg "Entwurf 2" width=10cm
+
+Probleme:
+ - Der Stab könnte durch das Gewicht aus der Schiene springen.
+ - Der Ausschlag der Wippe war zu groß
+
+Diese lösten wir durch ein Rad, das leicht von oben auf die Schiene drückt und Halterungen die einen zu großen Ausschlag der Wippe verhindern.
+
+Bisherige Tests verliefen gut, so dass wir uns auf den eigentlichen Messvorgang konzentrierten. Wir testeten mithilfe einer elektronischen Waage und Testgewichte um die ungefähre zurückgelegte Distanz vorhersagen zu können. Dabei werteten wir die Daten aus und generierten eine Funktion, die diese möglichst genau approximiert. 
 */
