@@ -33,4 +33,12 @@ Probleme:
 Diese lösten wir durch ein Rad, das leicht von oben auf die Schiene drückt und Halterungen die einen zu großen Ausschlag der Wippe verhindern.
 
 Bisherige Tests verliefen gut, so dass wir uns auf den eigentlichen Messvorgang konzentrierten. Wir testeten mithilfe einer elektronischen Waage und Testgewichte um die ungefähre zurückgelegte Distanz vorhersagen zu können. Dabei werteten wir die Daten aus und generierten eine Funktion, die diese möglichst genau approximiert. 
+
+ \section sec_5 Probleme und Verbesserungen
+Probleme die immer noch bestehen sind unter anderem:
+ - Befestigung des Gewichts spielt eine Rolle für das Messergebnis. Dies würde sich durch ein hängendes Gewicht beheben lassen.
+ - Man muss sicherstellen das die Startposition immer dieselbe ist. Das könnte man mithilfe zusätzlicher Sensoren sicherstellen.
+
+ \section Quellcode
+ <a href="https://github.com/feliwir/laufmassenwaage-B">Github repository</a>
 */
