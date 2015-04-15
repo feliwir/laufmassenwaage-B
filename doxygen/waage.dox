@@ -1,5 +1,4 @@
-/*!
- \mainpage NXT-Waage
+/*! \mainpage NXT-Waage
  \section sec_1 Aufgabenstellung
 Die Aufgabenstellung umfasste den Entwurf und den Bau einer Laufmassenwaage mithilfe eines NXT-Baukastens, dabei sollte besonderen Wert auf höchstmögliche Präzision  gelegt werden. Die Umsetzung sowie der Messbereich der Waage waren den Gruppen freigestellt.
  \section sec_2 Konzepte
@@ -39,6 +38,30 @@ Probleme die immer noch bestehen sind unter anderem:
  - Befestigung des Gewichts spielt eine Rolle für das Messergebnis. Dies würde sich durch ein hängendes Gewicht beheben lassen.
  - Man muss sicherstellen das die Startposition immer dieselbe ist. Das könnte man mithilfe zusätzlicher Sensoren sicherstellen.
 
- \section Quellcode
+ \section sec_6 Ausblick
+ - Veränderung des Messbereiches, durch erhöhen des Laufgewichts.
+ - Verlängerung des Hebelarms, um den Messbereich und die Genauigkeit noch weiter zu erhöhen.
+*/
+
+/*! \page Das Team
+ \image html team.jpg
+ \image latex team.jpg "Entwurf 1" width=10cm
+ \section Teammitglieder 
+ Von links nach rechts:\n
+ Patrick Zirjacks (4. Semester Angewandte Informatik)\n
+ Marcel Solle (3. Semester Angewandte Informatik (abgebrochen))\n
+ Stephan Vedder (4. Semester Angewandte Informatik)\n
+
+ \section Betreuer
+ Monika Harant\n
+ Thomas Kloepfer
+*/
+
+/*! \page Verlinkungen
+ \section Robotik-Heidelberg
+<a href="http://joanna.iwr.uni-heidelberg.de/rlab/de/home">IWR-Heidelberg</a>
+ \section Quellcode 
  <a href="https://github.com/feliwir/laufmassenwaage-B">Github repository</a>
 */
+
+
